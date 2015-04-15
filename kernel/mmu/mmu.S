@@ -16,8 +16,6 @@ enableMMU:
 	@ invalidate Instruction & Data TLBs
 	mcr	p15, 0, r2, c8, c5, 0
 
-	@ Format r2
-	sll	r2, r2, 14 @
 	
 	@TODO : Finish enabling MMU
 

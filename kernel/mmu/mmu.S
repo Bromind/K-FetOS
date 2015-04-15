@@ -26,6 +26,7 @@ enableMMU:
 	mov pc, lr
 
 .globl disableMMU
+disableMMU:
 	push {r0}
 
 	@Invalidate Instruction cache
@@ -41,3 +42,10 @@ enableMMU:
 	pop {r1}
 	pop {r0}
 	mov pc, lr
+
+@ Assuming that the value that should be loaded is in r0
+.globl loadTTBR0
+loadTTBR0:
+	mcr p15, 0, r0, c2, c0, 0
+	mov pc, lr
+	
